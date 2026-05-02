@@ -1,0 +1,40 @@
+name: Coreon
+options:
+  bundleIdPrefix: com.lifecalendar.yourlife
+  deploymentTarget:
+    iOS: "16.0"
+  developmentLanguage: en
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    TARGETED_DEVICE_FAMILY: "1"
+    IPHONEOS_DEPLOYMENT_TARGET: "16.0"
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+targets:
+  Coreon:
+    type: application
+    platform: iOS
+    sources:
+      - path: Coreon
+        excludes:
+          - "**/.DS_Store"
+    settings:
+      base:
+        INFOPLIST_FILE: Coreon/Resources/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.coreon.yourlife.app
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        CODE_SIGN_STYLE: Automatic
+        SWIFT_EMIT_LOC_STRINGS: "YES"
+        GENERATE_INFOPLIST_FILE: false
+  CoreonTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: CoreonTests
+    dependencies:
+      - target: Coreon
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.coreon.yourlife.tests
+        GENERATE_INFOPLIST_FILE: true
